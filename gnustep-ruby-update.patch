@@ -1,0 +1,31 @@
+--- gnustep-ruby-0.2.1/Source/RIGSCore.m.orig	2001-10-08 12:05:28.000000000 +0200
++++ gnustep-ruby-0.2.1/Source/RIGSCore.m	2003-07-20 15:43:15.000000000 +0200
+@@ -987,7 +987,7 @@
+ method_selectors_for_class  function for MACOSX and GNUstep
+ (see below)
+ */
+-#ifdef GNUSTEP
++#if defined(GNUSTEP) && !defined(class_nextMethodList)
+ static MethodList_t class_nextMethodList( Class class, void ** iterator_ptr) 
+ {
+   MethodList_t mlist;
+@@ -1014,14 +1014,17 @@
+   void *iterator = NULL;
+ 
+   while(class) {
+-
+-    while( (mlist = class_nextMethodList(class, &iterator)) != NULL) {
++    class_nextMethodList(class, &iterator);
++    mlist = (MethodList_t)iterator;
++    while( mlist != NULL) {
+       
+           for(i = 0; i < mlist->method_count; i++) {
+               SEL sel = mlist->method_list[i].method_name;
+               [methodSet addObject: NSStringFromSelector(sel)];
+               //NSLog(@"method name %@",NSStringFromSelector(sel));
+           }
++          class_nextMethodList(class, &iterator);
++          mlist = (MethodList_t)iterator;
+     }
+                 
+     if(use_super)

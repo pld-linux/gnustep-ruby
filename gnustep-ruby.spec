@@ -9,10 +9,13 @@ Source0:	ftp://ftp.gnustep.org/pub/gnustep/libs/%{name}-%{version}.tgz
 # Source0-md5:	2adb1444179d47566aa7dd5730c789ba
 Patch0:		%{name}-link.patch
 Patch1:		%{name}-rootdir.patch
+Patch2:		%{name}-update.patch
 URL:		http://www.gnustep.org/
-BuildRequires:	gnustep-base-devel
-BuildRequires:	gnustep-gui-devel
+BuildRequires:	gnustep-base-devel >= 1.7.1
+BuildRequires:	gnustep-gui-devel >= 0.8.6
 BuildRequires:	ruby >= 1.6.4
+Requires:	gnustep-base >= 1.7.1
+Requires:	gnustep-gui >= 0.8.6
 Requires:	ruby >= 1.6.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -42,16 +45,17 @@ jest umo¿liwienie u¿ywania ¶rodowiska GNUstep z poziomu jêzyka Ruby.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
-. %{_gsdir}/System/Makefiles/GNUstep.sh
+. %{_gsdir}/System/Library/Makefiles/GNUstep.sh
 
 %{__make} \
 	messages=yes
 
 %install
 rm -rf $RPM_BUILD_ROOT
-. %{_gsdir}/System/Makefiles/GNUstep.sh
+. %{_gsdir}/System/Library/Makefiles/GNUstep.sh
 %{__make} install \
 	INSTALL_ROOT_DIR=$RPM_BUILD_ROOT \
 	GNUSTEP_INSTALLATION_DIR=$RPM_BUILD_ROOT%{_gsdir}/System
@@ -72,4 +76,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/ruby/site_ruby/*/rigs
 
 # GNUstep world
-%attr(755,root,root) %{_gsdir}/System/Libraries/%{gscpu}/%{gsos}/%{libcombo}/lib*.so.*
+%attr(755,root,root) %{_gsdir}/System/Library/Libraries/%{gscpu}/%{gsos}/%{libcombo}/lib*.so.*
