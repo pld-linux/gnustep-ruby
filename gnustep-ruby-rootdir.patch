@@ -1,0 +1,37 @@
+--- gnustep-ruby-0.2.1/Ruby/GNUmakefile.orig	Mon Sep 24 13:12:01 2001
++++ gnustep-ruby-0.2.1/Ruby/GNUmakefile	Tue Dec 31 15:16:47 2002
+@@ -32,9 +32,10 @@
+ 
+ 
+ after-install::
+-	@cp -f rigs.rb Foundation.rb AppKit.rb $(RUBY_SITE_LIB_DIR)
+-	@rm -rf $(RUBY_SITE_LIB_DIR)/rigs/*
+-	@cp -rf rigs $(RUBY_SITE_LIB_DIR)
++	@install -d $(INSTALL_ROOT_DIR)$(RUBY_SITE_LIB_DIR)
++	@cp -f rigs.rb Foundation.rb AppKit.rb $(INSTALL_ROOT_DIR)$(RUBY_SITE_LIB_DIR)
++	@rm -rf $(INSTALL_ROOT_DIR)$(RUBY_SITE_LIB_DIR)/rigs/*
++	@cp -rf rigs $(INSTALL_ROOT_DIR)$(RUBY_SITE_LIB_DIR)
+ 
+ # Is there something more appropriate than tool.make here ?
+-include $(GNUSTEP_MAKEFILES)/tool.make
+\ No newline at end of file
++include $(GNUSTEP_MAKEFILES)/tool.make
+--- gnustep-ruby-0.2.1/Source/GNUmakefile.postamble.orig	Wed Sep 12 23:29:44 2001
++++ gnustep-ruby-0.2.1/Source/GNUmakefile.postamble	Tue Dec 31 15:19:17 2002
+@@ -44,12 +44,14 @@
+ ifeq ($(debug),)
+ 
+ after-install::
+-	@cp -f $(GNUSTEP_OBJ_DIR)/$(LIBRARY_NAME).so $(RUBY_SITE_ARCH_DIR)
++	@install -d $(INSTALL_ROOT_DIR)$(RUBY_SITE_ARCH_DIR)
++	@cp -f $(GNUSTEP_OBJ_DIR)/$(LIBRARY_NAME).so $(INSTALL_ROOT_DIR)$(RUBY_SITE_ARCH_DIR)
+ 
+ else
+ 
+ after-install::
+-	@cp -f $(GNUSTEP_OBJ_DIR)/$(LIBRARY_NAME)_d.so $(RUBY_SITE_ARCH_DIR)/$(LIBRARY_NAME).so
++	@install -d $(INSTALL_ROOT_DIR)$(RUBY_SITE_ARCH_DIR)
++	@cp -f $(GNUSTEP_OBJ_DIR)/$(LIBRARY_NAME)_d.so $(INSTALL_ROOT_DIR)$(RUBY_SITE_ARCH_DIR)/$(LIBRARY_NAME).so
+ 
+ endif
+ 
