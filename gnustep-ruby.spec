@@ -10,7 +10,7 @@ Source0:	ftp://ftp.gnustep.org/pub/gnustep/libs/%{name}-%{version}.tgz
 Patch0:		%{name}-link.patch
 Patch1:		%{name}-rootdir.patch
 Patch2:		%{name}-update.patch
-URL:		http://www.gnustep.org/
+URL:		http://www.gnustep.org/experience/RIGS.html
 BuildRequires:	gnustep-base-devel >= 1.7.1
 BuildRequires:	gnustep-gui-devel >= 0.8.6
 BuildRequires:	ruby >= 1.6.4
