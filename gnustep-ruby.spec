@@ -6,6 +6,7 @@ Release:	1
 License:	LGPL/GPL
 Group:		Libraries
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/libs/%{name}-%{version}.tgz
+# Source0-md5:	2adb1444179d47566aa7dd5730c789ba
 Patch0:		%{name}-link.patch
 Patch1:		%{name}-rootdir.patch
 URL:		http://www.gnustep.org/
