@@ -1,14 +1,13 @@
 Summary:	RIGS - Ruby Interface for GNUstep
 Summary(pl):	RIGS - Interfejs Ruby do GNUstepa
 Name:		gnustep-ruby
-Version:	0.2.1
-%define cvs 20040819
-Release:	2.%{cvs}.1
+Version:	0.2.2
+Release:	1
 License:	LGPL/GPL
 Group:		Libraries
-#Source0:	ftp://ftp.gnustep.org/pub/gnustep/libs/%{name}-%{version}.tgz
-Source0:	%{name}-cvs-%{cvs}.tar.gz
-# Source0-md5:	c4841051f3f225e53097ec9f76e2cc60
+Source0:	ftp://ftp.gnustep.org/pub/gnustep/libs/rigs-%{version}.tar.gz
+# Source0-md5:	d6e0231311f1822f8981014a0cf6cffc
+#Source0:	%{name}-cvs-%{cvs}.tar.gz
 #Patch0:		%{name}-link.patch
 Patch1:		%{name}-rootdir.patch
 #Patch2:		%{name}-update.patch
@@ -47,7 +46,7 @@ miêdzy jêzykiem Ruby a Objective-C i GNUstepem. G³ównym celem RIGS
 jest umo¿liwienie u¿ywania ¶rodowiska GNUstep z poziomu jêzyka Ruby.
 
 %prep
-%setup -q -n %{name}
+%setup -q -n rigs-%{version}
 #%patch0 -p1
 %patch1 -p1
 #%patch2 -p1
