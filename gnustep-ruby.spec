@@ -2,7 +2,7 @@ Summary:	RIGS - Ruby Interface for GNUstep
 Summary(pl):	RIGS - Interfejs Ruby do GNUstepa
 Name:		gnustep-ruby
 Version:	0.2.1
-Release:	1
+Release:	2
 License:	LGPL/GPL
 Group:		Libraries
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/libs/%{name}-%{version}.tgz
@@ -19,7 +19,7 @@ Requires:	gnustep-gui >= 0.8.6
 Requires:	ruby >= 1.6.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_gsdir		/usr/lib/GNUstep
+%define		_gsdir		/usr/%{_lib}/GNUstep
 
 %define		libcombo	gnu-gnu-gnu
 %define		gsos		linux-gnu
@@ -27,8 +27,11 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		gscpu		ix86
 %else
 # also s/alpha.*/alpha/, but we use only "alpha" arch for now
-%define		gscpu		%{_target_cpu}
+%define		gscpu		%(echo %{_target_cpu} | sed -e 's/amd64/x86_64/;s/ppc/powerpc/')
 %endif
+
+%define		ruby_sitelibdir		%(ruby -rrbconfig -e 'print Config::CONFIG["sitelibdir"]')
+%define		ruby_sitearchdir	%(ruby -rrbconfig -e 'print Config::CONFIG["sitearchdir"]')
 
 %description
 RIGS stands for Ruby Interface for GNUstep. It is a package allowing
@@ -72,9 +75,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc ChangeLog NEWS README TODO
 
 # UNIX world
-%attr(755,root,root) %{_libdir}/ruby/site_ruby/*/*-linux/librigs.so
-%{_libdir}/ruby/site_ruby/*/*.rb
-%{_libdir}/ruby/site_ruby/*/rigs
+%attr(755,root,root) %{ruby_sitearchdir}/librigs.so
+%{ruby_sitelibdir}/*.rb
+%{ruby_sitelibdir}/rigs
 
 # GNUstep world
 %attr(755,root,root) %{_gsdir}/System/Library/Libraries/%{gscpu}/%{gsos}/%{libcombo}/lib*.so.*
