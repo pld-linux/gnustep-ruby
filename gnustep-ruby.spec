@@ -8,9 +8,8 @@ Group:		Libraries
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/libs/rigs-%{version}.tar.gz
 # Source0-md5:	d6e0231311f1822f8981014a0cf6cffc
 #Source0:	%{name}-cvs-%{cvs}.tar.gz
-#Patch0:		%{name}-link.patch
+Patch0:		%{name}-link.patch
 Patch1:		%{name}-rootdir.patch
-#Patch2:		%{name}-update.patch
 URL:		http://www.gnustep.org/experience/RIGS.html
 BuildRequires:	gnustep-base-devel >= 1.7.1
 BuildRequires:	gnustep-gui-devel >= 0.8.6
@@ -47,9 +46,8 @@ jest umo¿liwienie u¿ywania ¶rodowiska GNUstep z poziomu jêzyka Ruby.
 
 %prep
 %setup -q -n rigs-%{version}
-#%patch0 -p1
+%patch0 -p1
 %patch1 -p1
-#%patch2 -p1
 
 %build
 . %{_gsdir}/System/Library/Makefiles/GNUstep.sh
