@@ -1,11 +1,11 @@
---- gnustep-ruby-0.2.1/Source/GNUmakefile.orig	Fri Oct 12 14:10:38 2001
-+++ gnustep-ruby-0.2.1/Source/GNUmakefile	Tue Dec 31 15:13:41 2002
+--- rigs-0.2.2/Source/GNUmakefile.orig	2005-02-22 02:12:05.000000000 +0100
++++ rigs-0.2.2/Source/GNUmakefile	2005-03-09 22:07:07.751257352 +0100
 @@ -46,7 +46,7 @@
  ADDITIONAL_OBJCFLAGS = -Wall -g -DVERSION=\"$(VERSION)\"
  
  $(LIBRARY_NAME)_OBJC_FILES = $(wildcard *.m)
--LIBRARIES_DEPEND_UPON  =  $(FND_LIBS) -lgmodel $(GUI_LIBS) $(OBJC_LIBS) $(SYSTEM_LIBS) $(CONFIG_SYSTEM_LIBS) -lpthread
-+LIBRARIES_DEPEND_UPON  = -lruby $(FND_LIBS) $(GUI_LIBS) $(OBJC_LIBS) $(SYSTEM_LIBS) $(CONFIG_SYSTEM_LIBS) -lpthread
+-LIBRARIES_DEPEND_UPON  =  $(FND_LIBS) $(GUI_LIBS) $(OBJC_LIBS) $(SYSTEM_LIBS) $(CONFIG_SYSTEM_LIBS)
++LIBRARIES_DEPEND_UPON  = -lruby $(FND_LIBS) $(GUI_LIBS) $(OBJC_LIBS) $(SYSTEM_LIBS) $(CONFIG_SYSTEM_LIBS)
  
  
  include $(GNUSTEP_MAKEFILES)/library.make
