@@ -51,6 +51,7 @@ jest umo¿liwienie u¿ywania ¶rodowiska GNUstep z poziomu jêzyka Ruby.
 . %{_gsdir}/System/Library/Makefiles/GNUstep.sh
 
 %{__make} \
+	OPTFLAG="%{rpmcflags}" \
 	messages=yes
 
 %install
