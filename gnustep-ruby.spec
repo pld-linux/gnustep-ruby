@@ -13,6 +13,7 @@ Patch1:		%{name}-rootdir.patch
 URL:		http://www.gnustep.org/experience/RIGS.html
 BuildRequires:	gnustep-base-devel >= 1.7.1
 BuildRequires:	gnustep-gui-devel >= 0.8.6
+BuildRequires:	rpmbuild(macros) >= 1.272
 BuildRequires:	ruby-devel >= 1:1.6.4
 Requires:	gnustep-base >= 1.7.1
 Requires:	gnustep-gui >= 0.8.6
@@ -29,9 +30,6 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 # also s/alpha.*/alpha/, but we use only "alpha" arch for now
 %define		gscpu		%(echo %{_target_cpu} | sed -e 's/amd64/x86_64/;s/ppc/powerpc/')
 %endif
-
-%define		ruby_sitelibdir		%(ruby -rrbconfig -e 'print Config::CONFIG["sitelibdir"]')
-%define		ruby_sitearchdir	%(ruby -rrbconfig -e 'print Config::CONFIG["sitearchdir"]')
 
 %description
 RIGS stands for Ruby Interface for GNUstep. It is a package allowing
