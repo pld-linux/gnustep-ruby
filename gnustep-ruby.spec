@@ -18,7 +18,7 @@ BuildRequires:	ruby-devel >= 1:1.6.4
 Requires:	gnustep-base >= 1.7.1
 Requires:	gnustep-gui >= 0.8.6
 Requires:	ruby >= 1:1.6.4
-%ruby_mod_ver_requires_eq
+%{?ruby_mod_ver_requires_eq}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_gsdir		/usr/%{_lib}/GNUstep
