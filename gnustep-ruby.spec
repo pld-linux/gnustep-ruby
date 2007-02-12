@@ -1,5 +1,5 @@
 Summary:	RIGS - Ruby Interface for GNUstep
-Summary(pl):	RIGS - Interfejs Ruby do GNUstepa
+Summary(pl.UTF-8):   RIGS - Interfejs Ruby do GNUstepa
 Name:		gnustep-ruby
 Version:	0.2.2
 Release:	1
@@ -38,10 +38,10 @@ integration between Ruby and Objective-C/GNUstep. The main purpose of
 RIGS is to allow the use the GNUstep development environment from
 Ruby.
 
-%description -l pl
-RIGS to interfejs Ruby do GNUstepa. Pakiet ten umo¿liwia integracjê
-miêdzy jêzykiem Ruby a Objective-C i GNUstepem. G³ównym celem RIGS
-jest umo¿liwienie u¿ywania ¶rodowiska GNUstep z poziomu jêzyka Ruby.
+%description -l pl.UTF-8
+RIGS to interfejs Ruby do GNUstepa. Pakiet ten umoÅ¼liwia integracjÄ™
+miÄ™dzy jÄ™zykiem Ruby a Objective-C i GNUstepem. GÅ‚Ã³wnym celem RIGS
+jest umoÅ¼liwienie uÅ¼ywania Å›rodowiska GNUstep z poziomu jÄ™zyka Ruby.
 
 %prep
 %setup -q -n rigs-%{version}
