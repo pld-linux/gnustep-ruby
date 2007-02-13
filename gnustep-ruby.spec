@@ -1,5 +1,5 @@
 Summary:	RIGS - Ruby Interface for GNUstep
-Summary(pl.UTF-8):   RIGS - Interfejs Ruby do GNUstepa
+Summary(pl.UTF-8):	RIGS - Interfejs Ruby do GNUstepa
 Name:		gnustep-ruby
 Version:	0.2.2
 Release:	1
